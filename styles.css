@@ -1,0 +1,249 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+html{
+    scrollbar-color: #082a49 #08415c;
+    scrollbar-width: thin;
+}
+
+body{
+    margin: 0;
+    font-size: 1rem;
+    color:aliceblue;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+a{
+    text-decoration: none;
+    color:aliceblue;
+}
+
+nav{
+    background-color: #041C32;
+    padding: 0 50px;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+    animation: fade 3s linear forwards;
+}
+
+nav:hover{
+    animation: reverse;
+}
+
+ul{
+    list-style-type: none;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0;
+}
+
+li{
+    padding: 20px 0px;
+}
+
+li a{
+    padding: 20px 20px;
+    font-size: 1.4rem;
+}
+
+li:hover a{
+    background-color: #ECB365;
+}
+
+h1{
+    font-size: 4rem;
+}
+
+#welcome-section{
+    height: 100vh;
+    background: #04293A;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#welcome-section p{
+    font-style: italic;
+    font-size: 2rem;
+    color: #ECB365;
+}
+
+#projects{
+    background-color: #064663;
+    padding: 20px 0;
+}
+
+.projects-header{
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-align: center;
+    padding: 50px 0;
+}
+
+.projects-header span{
+    text-decoration: underline #ECB365 3px;
+}
+
+
+.projects-display img{
+    width: 400px;
+}
+
+.projects-display{
+    display: grid;
+    grid-template: repeat(3,50%) / repeat(2,50%);
+    justify-items: center;
+    gap: 20px 5px;
+}
+
+.projects-display a:last-child{
+    grid-area: 3 / 1 / 4 / 3;
+}
+
+figure{
+    position: relative;
+}
+
+figcaption{
+    text-align: center;
+    background-color: #04293a98;
+    font-weight: 500;
+    font-size: 1.1rem;
+    position: absolute;
+    bottom: 2%;
+    width: 100%;
+    padding: 10px 0;
+    opacity: 90%;
+}
+
+.projects-display a:hover figcaption::before{
+    content: "<";
+    color:#ECB365;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-right: 5px;
+}
+
+.projects-display a:hover figcaption::after{
+    content: ">";
+    color:#ECB365;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding-left: 5px;
+}
+
+
+.contact{
+    height: 80vh;
+    background-color: #04293A;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 40px;
+    text-align: center;
+}
+
+.contact-header h2{
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+.contact-header p{
+    font-size: 1.2rem;
+    font-style: italic;
+    letter-spacing: 1px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.contact-links{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 30px;
+    row-gap: 20px;
+    padding: 0 20px;
+    font-size: 1.4rem;
+}
+
+.contact-links a{
+    transition: 0.3s linear;
+}
+
+.contact-links a:hover{
+    transform:translateY(10px);
+    color: #ECB365;
+}
+
+#Bogdanov{
+    position: relative;
+}
+
+#Bogdanov:hover::after{
+    content: "Bogdanov, he bought the dip";
+    position: absolute;
+    font-size: 1rem;
+    top:0;
+    left: 60px;
+    width: 300px;
+    color:orangered;
+}
+
+#Bogdanov:active::after{
+    content: "Dump it, then dump it again!";
+    position: absolute;
+    font-size: 1rem;
+    top:0;
+    left: 60px;
+    width: 300px;
+    color:orangered;
+}
+
+footer{
+    text-align: end;
+    border-top:#031424 solid 3px;
+    background-color: #041C32;
+    padding: 30px 150px;
+    font-size: 1.15rem;
+}
+
+@media (max-width:850px){
+    .projects-display{
+        grid-template: repeat(5,1fr)/ 1fr;
+    }
+
+    .projects-display a:last-child{
+        grid-area:unset;
+    }
+    .projects-display img{
+        width: 600px;
+    }
+    footer{
+        text-align: center;
+    }
+    ul{
+        justify-content: center;
+    }
+}
+
+@media (max-width:650px){
+    .projects-display img{
+        width: 400px;
+    }
+    .contact-header h2, .projects-header{
+        font-size: 2rem;
+    }
+}
+
+@keyframes fade {
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0;
+    }
+}
