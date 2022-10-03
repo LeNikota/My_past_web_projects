@@ -1,0 +1,251 @@
+body
+{
+	background: #ececec;
+	margin: 0 200px;
+	min-width: 	800px;
+	font-family: sans-serif;
+}
+
+hr
+{
+	margin: 40px 0;
+	padding: 0;
+	height: 0;
+	border: none;
+	border-top: 1px solid #e0e0e0;
+}
+
+.button
+{
+	color: #ffffff;
+	text-decoration: none;
+	user-select: none;
+	background: #f0541b;
+	padding: 10px 20px;
+}
+.button:hover {background: #3f3f3f;}
+.button:active {background: #4f4f4f;}
+
+.photo .button
+{
+	margin: 20px 0 0 100px;
+}
+
+.header
+{
+	background: rgb(58,58,58);
+	padding: 20px 2px;
+	font-size: 16px;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	overflow: hidden;
+	position: relative;
+}
+
+.header li
+{
+	display: inline-block;
+	margin: 0 10px;
+	color:rgb(138,138,138);
+	float: left;
+}
+
+.header li:hover
+{
+	color:whitesmoke;
+	cursor: pointer;
+}
+
+* {box-sizing: border-box;}
+.header form
+{
+	position: absolute;
+	right: 20px;
+	top: 14px;
+}
+.header input {
+	height: 30px;
+	width: 230px;
+	border: 2px solid #f4f4f4;
+	outline: none;
+}
+.header button {
+	position: absolute; 
+	right: 0px;
+	width: 40px;
+	height: 30px;
+	border: none;
+	background: #f0541b;
+	cursor: pointer;
+}
+.header button:before {
+	content: "🔎";
+	font-size: 16px;
+	color: #F9F0DA;
+}
+.header button:hover {
+	cursor: url(../cursor/fuck_you.cur), auto;
+}
+
+.logo
+{
+	overflow: hidden;
+	padding: 30px 20px;
+	background: linear-gradient(#ffffff, #f4f4f4);;
+}
+
+.logo img
+{
+	width: 100px;
+	left: 220px;
+	float: left;
+}
+
+.logo h1
+{
+	top: 20px;
+	left: 10px;
+	font-size: 30px;
+	font-weight: 700;
+	font-family: cursive;
+	position: relative;
+}
+
+.logo ul
+{
+	text-align: right;
+	color:#5a5a5a;
+}
+
+.map
+{
+	background: rgb(250,250,250);
+	text-align: center;
+	padding: 20px;
+	margin-bottom: 30px;
+}
+
+.map li
+{
+	display: inline;
+	padding: 20px;
+}
+
+.map li:hover
+{
+	background: #f3f3f1;
+	cursor: pointer;
+	color: #fb8b66;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.gamedescription
+{
+	background: white;
+	padding: 20px;
+	font-family: Tahoma;
+	font-weight: 400;
+	font-size: 18px;
+}
+
+.gamedescription img
+{
+	width: 300px;
+}
+
+.gamedescription p
+{
+	padding: 10px 10px;
+}
+
+.gamedescription ul
+{
+	display: flex;
+	flex-direction: column;
+}
+.gamedescription li
+{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: justify;
+	border-bottom: 2px solid #f0541b;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+footer
+{
+	margin-top: 30px;
+	background: #3a3a3a;
+	padding: 40px 30px 20px 30px;
+	display: flex;
+	align-items: flex-start;
+	color: #878787;
+}
+
+footer li
+{
+	display: inline-block;
+	margin-right:30px;
+}
+
+footer li:hover{color: #fcfcfc; cursor: pointer;}
+
+.footermap
+{
+	flex: 2;
+	border-bottom: #4e4e4e solid 1px;
+	padding-bottom: 10px;
+}
+
+.footercontent
+{
+	flex: 1;
+}
+
+.footercontent h6
+{
+	padding-bottom: 10px;
+	border-bottom: #4e4e4e solid 1px;
+}
+
+.footercontent img
+{
+	margin-top: 10px;
+	width: 20px;

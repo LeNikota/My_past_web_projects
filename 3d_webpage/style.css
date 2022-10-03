@@ -1,0 +1,200 @@
+html,body{
+    margin: 0;
+    box-sizing:border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+:root{
+    /*The :root CSS pseudo-class matches the root element of a tree representing the document. In HTML, :root represents the <html> element and is identical to the selector html, except that its specificity is higher.*/
+
+}
+
+
+div#three-dimensional-site-view{
+    --Primary: #c037ffa1;
+    --Secondary: #e7b4ffa1;
+    --Tertiary: #ffffffa1;
+    --Background: #ffffffa1;
+    --Border: #ae00ff;
+
+    background-color: var(--Primary);
+    margin: 50px auto;
+    max-width: 500px;
+    padding: 20px;
+    transition: all 2s;
+    transform-style: preserve-3d;
+}
+
+#three-dimensional-site-view *{
+    border: 2px solid var(--Border);
+    border-radius: 4px;
+    transition: all 2s;
+    transform-style: preserve-3d;
+}
+
+#three-dimensional-site-view main{
+    border:none;
+}
+#three-dimensional-site-view header,
+#three-dimensional-site-view section
+{
+    margin-bottom: 20px;
+}
+
+#three-dimensional-site-view header{
+    background-color: var(--Secondary);
+    padding: 0 20px;
+}
+
+#three-dimensional-site-view header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#three-dimensional-site-view #logo{
+    width: 100px;
+    height: 40px;
+    background-color: rgba(240, 255, 255, 0.658);
+}
+
+#three-dimensional-site-view header div{
+    width: 70px;
+    height: 0;
+}
+
+#three-dimensional-site-view #items{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--Background);
+}
+
+#three-dimensional-site-view img{
+    width: 50%;
+    height: 50%;
+    padding: 30px;
+    margin: 10px;
+    background-color: rgba(255, 255, 255, 0.356);
+}
+
+#three-dimensional-site-view #places-section{
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
+    justify-items: center;
+    row-gap:40px;
+    background-color: var(--Background);
+}
+
+#three-dimensional-site-view .place{
+    border-radius: 50%;
+    width: 130px;
+    height: 130px;
+    background-color: rgba(255, 255, 255, 0.356);
+}
+
+#three-dimensional-site-view #comments-section{
+    padding: 10px;
+    background-color: var(--Background);
+}
+
+#three-dimensional-site-view div{
+    margin: 20px 0;
+}
+
+
+
+
+/*3d effect when hovered*/
+
+
+
+div#three-dimensional-site-view:hover{
+    transform: translateX(-50px) translateY(-100px) perspective(1200px) rotateX(40deg) rotateY(30deg) rotateZ(-20deg);
+    --translate-distance:60px;
+}
+
+
+
+#three-dimensional-site-view:hover header,
+#three-dimensional-site-view:hover section
+{
+    transform:  translateZ(var(--translate-distance));
+}
+
+#three-dimensional-site-view:hover header div,
+#three-dimensional-site-view:hover section div,
+#three-dimensional-site-view:hover section img
+{
+    transform:  translateZ(var(--translate-distance));
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.button-34 {
+  background: #5E5DF0;
+  border-radius: 999px;
+  box-shadow: #5E5DF0 0 10px 20px -10px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: Inter,Helvetica,"Apple Color Emoji","Segoe UI Emoji",NotoColorEmoji,"Noto Color Emoji","Segoe UI Symbol","Android Emoji",EmojiSymbols,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue","Noto Sans",sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  opacity: 1;
+  outline: 0 solid transparent;
+  padding: 8px 18px;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  width: 200px;
+  word-break: break-word;
+  border: 0;
+  transition: 100ms all;
+}
+
+.button-34:hover{
+    box-shadow: #5d5df09a 0 0 10px 10px;
+}
+
+.control{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:50px;
+    margin: 100px auto;
+    z-index: 1;
+}
+
+.rotation-control, .position-control{
+    display: flex;
+    gap:50px
+}
+
+.rotation-controller, .position-controller{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

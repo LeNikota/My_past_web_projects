@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <style></style>
+    <title>Styling</title>
+</head>
+
+<body>
+    <div id="three-dimensional-site-view">
+        <header>
+            <div id="logo"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </header>
+        <main>
+            <section id="items">
+                <img src="Building.svg" alt="" class="items">
+                <img src="Road.svg" alt="" class="items">
+            </section>
+            <section id="places-section">
+                <div class="place"></div>
+                <div class="place"></div>
+                <div class="place"></div>
+                <div class="place"></div>
+                <div class="place"></div>
+                <div class="place"></div>
+            </section>
+        </main>
+        <section id="comments-section">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </section>
+    </div>
+    <div class="control">
+        <div class="toggle">
+            <button class="button-34" role="button" id="buttonChangeView" onclick="changeView()">Change view</button>
+            <button class="button-34" role="button" id="buttonDetach" onclick="detach()">Detach</button>
+        </div>
+        <div class="rotation-control">
+            <h2>Rotation</h2>
+            <div class="rotation-controller">
+                <h2 class="rotation-controller-value"></h2>
+                <input type="range" name="x" id="rotate_x" step="1" min="0" max="365" disabled oninput="rotate_X()">
+            </div>
+            <div class="rotation-controller">
+                <h2 class="rotation-controller-value"></h2>
+                <input type="range" name="y" id="rotate_y" step="1" min="0" max="365" disabled oninput="rotate_Y()">
+            </div>
+            <div class="rotation-controller">
+                <h2 class="rotation-controller-value"></h2>
+                <input type="range" name="z" id="rotate_z" step="1" min="0" max="365" disabled oninput="rotate_Z()">
+            </div>
+            <div class="rotation-controller">
+                <h2 class="rotation-controller-value"></h2>
+                <input type="number" name="perspective" id="perspective" disabled oninput="changePerspective()">
+            </div>
+        </div>
+        <div class="position-control">
+            <h2>Position</h2>
+            <div class="position-controller">
+                <h2 class="position-controller-value"></h2>
+                <input type="range" name="x" id="position_x" step="10" min="-1000" max="1000" disabled oninput="position_X()">
+            </div>
+            <div class="position-controller">
+                <h2 class="position-controller-value"></h2>
+                <input type="range" name="y" id="position_y" step="10" min="-1000" max="1000" disabled oninput="position_Y()">
+            </div>
+            <div class="position-controller">
+                <h2 class="position-controller-value"></h2>
+                <input type="range" name="z" id="position_z" step="10" min="-1000" max="1000" disabled oninput="position_Z()">
+            </div>
+        </div>
+    <script src="JavaScript.js"></script>
+</body>
+
+</html>

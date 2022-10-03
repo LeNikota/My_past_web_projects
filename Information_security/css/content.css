@@ -1,0 +1,110 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    font-family: sans-serif;
+}
+
+html
+{
+	scrollbar-width: thin;
+  	scrollbar-color: #8B8B8B #111111;
+}
+
+::selection {
+	background-color: #1D2B3B;
+}
+
+body
+{
+	display: flex;
+	flex-direction: column;
+	color: white;
+}
+ul
+{
+	list-style: none;
+	margin: unset;
+	padding: unset;
+}
+a
+{
+	text-decoration: none;
+	color: white;
+}
+
+header ul
+{
+	display: flex;
+	justify-content: center;
+	background: #161616;
+	font-size: 20px;
+	font-stretch: ultra-expanded;
+}
+
+header li
+{
+	padding: 30px 20px;
+}
+
+header li:hover
+{
+	background: linear-gradient(#9f9d9180, #5859538c);
+}
+
+.images_examples
+{
+	text-align: center;
+	background: rgb(76,73,68);
+	background: radial-gradient(circle, rgba(76,73,68,1) 0%, rgba(30,30,30,1) 51%);
+	padding-bottom: 40px;
+}
+
+.images_examples ul
+{
+	display: flex;
+	justify-content: space-around;
+	align-items: flex-end;
+	margin: 0 20px;
+}
+
+.images_examples img
+{
+	width: 400px;
+	height: 280px;
+}
+
+.images_examples h2
+{
+	background: linear-gradient(#a29f96,#54514a);
+	margin: unset;
+	margin-top: -4px;
+	padding: 15px 0;
+}
+.explanation
+{
+	background: #161616;
+	height: 100%;
+	padding: 20px 0;
+	font-size: 20px;
+	text-align: justify;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
+
+.explanation p
+{
+	margin: 10px 10%;
+}
+
+.explanation b, h3
+{
+	color: #ca3e47;
+}
+
+h3
+{
+	text-align: center;
+	font-weight: 700;
+	font-size: 25px;
+}
