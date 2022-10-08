@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+    <style>
+        html{
+            box-sizing: border-box;
+        }
+
+
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10rem;
+            padding: 10rem 0;
+            background: rgb(64, 64, 172);
+        }
+
+        #slider-main,
+        #slider-main-smooth {
+            min-width: 800px;
+            min-height: 400px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-color: white;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: #081F37 0 0 100px 1px,
+                rgba(15, 54, 95, 0.514) 0 0 100px 10px;
+        }
+
+        .slider-controls {
+            background: #4b4ed88c;
+            color: rgba(255, 255, 255, 0.856);
+            text-align: center;
+            border: unset;
+            width: 40px;
+            height: 200px;
+            font-size: 4rem;
+            cursor: pointer;
+            opacity: 10%;
+            transition: 300ms;
+            z-index: 100;
+            box-shadow: rgba(0, 0, 0, 0.445) 0 0 30px;
+        }
+
+        .slider-controls:hover {
+            opacity: 100%;
+        }
+
+        .slider-btn {
+            position: absolute;
+        }
+
+        .slider-btn:nth-child(2) {
+            right: 0;
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            transition: 2s;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='slider-main'>
+        <button class="slider-controls" onclick="moveLeft()">&lt;</button>
+        <button class="slider-controls" onclick="moveRight()">&gt;</button>
+    </div>
+
+
+
+    <div id='slider-main-smooth'>
+        <button class="slider-controls slider-btn" onclick="moveLeftSmoothly()">&lt;</button>
+        <button class="slider-controls slider-btn" onclick="moveRightSmoothly()">&gt;</button>
+    </div>
+
+
+
+    <script>
+        let mainSlider = document.getElementById('slider-main');
+        let smoothMainSlider = document.getElementById('slider-main-smooth')
+        let page = 0;
+        let slideIndex = 0;
+        let slideWidth = 0;
+        let imageArray = []
+        let backgrounArr = [
+            'https://i.ytimg.com/vi/7gx7d5WZrtc/maxresdefault.jpg',
+            'https://i.ytimg.com/vi/vrmZLTvYhZA/maxresdefault.jpg',
+            'https://steamuserimages-a.akamaihd.net/ugc/1039715510750279002/1281011D125982FF9EF24BC07CB89ED6A6570BDA/?imw=512&amp;imh=288&amp;ima=fit&amp;impolicy=Letterbox&amp;imcolor=%23000000&amp;letterbox=true',
+            'https://www.licente-jocuri.ro/image/cache/data/img-jocuri/orange/Portal%202%20Screenshot%208-1920x1080.jpg',
+            'https://s01.riotpixels.net/data/be/48/be487a78-144b-4ff0-919e-b8f008367d91.jpg/screenshot.portal-2.2560x1600.2011-04-21.2.jpg',
+            'https://s01.riotpixels.net/data/35/7e/357ec9a8-ac1b-41a1-8726-c3ee5458f158.jpg.720p.jpg/screenshot.portal-2.1280x720.2011-05-19.426.jpg'
+        ]
+        mainSlider.style.backgroundImage = `url(${backgrounArr[0]})`
+
+
+
+
+
+
+
+        let moveLeft = () => {
+            if (page === 0) {
+                page = (backgrounArr.length - 1)
+                mainSlider.style.backgroundImage = `url(https://i.ytimg.com/vi/7gx7d5WZrtc/maxresdefault.jpg)`
+            }
+            else {
+                page--
+                mainSlider.style.backgroundImage = `url(${backgrounArr[page]})`
+            }
+        }
+
+        let moveRight = () => {
+            if (page === backgrounArr.length - 1) {
+                page = 0
+                mainSlider.style.backgroundImage = `url(${backgrounArr[page]})`
+            }
+            else {
+                page++
+                mainSlider.style.backgroundImage = `url(${backgrounArr[page]})`
+            }
+        }
+
+
+
+
+
+
+
+
+
+        backgrounArr.forEach((e, i) => {
+            const img = document.createElement("img")
+            img.src = e;
+            img.style.left = i * 100 + "%";
+            smoothMainSlider.appendChild(img);
+            imageArray.push(img)
+            if (i === 0) slideWidth = img.clientWidth;
+        })
+
+
+
+        let moveRightSmoothly = () => {
+            slideIndex++
+            if (slideIndex >= backgrounArr.length) {
+                imageArray.forEach(e => e.style.transform = `translateX(0px)`)
+                slideIndex = 0
+            }
+            else {
+                imageArray.forEach(e => e.style.transform = `translateX( ${-(slideWidth * slideIndex)}px)`)
+            }
+        }
+
+        let moveLeftSmoothly = () => {
+            slideIndex--
+            if (slideIndex === -1) {
+                imageArray.forEach(e => e.style.transform = `translateX(${-(slideWidth * (backgrounArr.length - 1))}px)`)
+                slideIndex = backgrounArr.length
+            }
+            else {
+                imageArray.forEach(e => e.style.transform = `translateX( ${-(slideWidth * slideIndex)}px)`)
+            }
+        }
+    </script>
+</body>
+
+</html>
