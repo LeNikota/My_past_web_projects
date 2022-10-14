@@ -175,8 +175,13 @@
             }
             else {
                 imageArray.forEach(e => e.style.transform = `translateX( ${-(slideWidth * slideIndex)}px)`)
-            }
+            }   
         }
+
+        addEventListener('resize', () => { //In case of someone changeing the size of the screen it updates the slideWidth
+            slideWidth = img.clientWidth
+            imageArray.forEach(e => e.style.transform = `translateX(${-(slideWidth * (backgrounArr.length - 1))}px)`)
+        });
     </script>
 </body>
 

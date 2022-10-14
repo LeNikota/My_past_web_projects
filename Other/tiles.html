@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiles</title>
+    <style>
+        body {
+            background-color: #181818;
+            height: 100vh;
+            margin: 0;
+
+            display: grid;
+            grid-template-rows: repeat(var(--rows), 1fr);
+            grid-template-columns: repeat(var(--columns), 1fr);
+        }
+
+        .tile {
+            outline: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        const wrapper = document.body
+        let columns;
+        let rows;
+        let count = -1;
+        let size = 100
+        const colors = [
+            "rgb(21, 0, 80)",
+            "rgb(216, 33, 72)",
+            "rgb(242, 76, 76)",
+            "rgb(224, 77, 1)"
+        ]
+
+
+
+        const handleTileClick = index => {
+            count = count + 1
+            anime({
+                targets: ".tile",
+                backgroundColor:colors[count % colors.length],
+                outlineColor: 'rgb(0, 0, 0, 0)',
+                delay: anime.stagger(50, {
+                    grid: [columns, rows],
+                    from: index
+                })
+            });
+
+        }
+
+        const createTile = index => {
+            const tile = document.createElement("div");
+
+            tile.classList.add("tile");
+
+            tile.onclick = () => handleTileClick(index)
+
+            return tile;
+        }
+
+        const createTiles = quantity => {
+            Array.from(Array(quantity)).map((tile, index) => {
+                wrapper.appendChild(createTile(index));
+            });
+        }
+
+        const createGrid = () => {
+            wrapper.innerHTML = "";
+
+            columns = Math.floor(document.body.clientWidth / size);
+            rows = Math.floor(document.body.clientHeight / size);
+
+            wrapper.style.setProperty("--columns", columns);
+            wrapper.style.setProperty("--rows", rows);
+
+            createTiles(columns * rows);
+        }
+
+            createGrid()
+
+        window.onresize = () => createGrid()
+    </script>
+</body>
+
+</html>
