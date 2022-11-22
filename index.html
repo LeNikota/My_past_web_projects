@@ -7,42 +7,112 @@
     <title>My projects</title>
     <style>
         html,body{
-            min-height: 100vh;
+            height: 100vh;
         }
         body{
-            margin: unset;
+            margin: 0;
+            background-color: rgb(20, 20, 20);
+        }
+        #menu{
+            height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            gap:2rem;
-            background:#1B2430;
         }
-        a{
+        .menu-item{
+            font-family: "Ibarra Real Nova", serif;
+            font-size: 2rem;
+            color: white;
             text-decoration: none;
-            font-size: 1.6rem;
-            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: block;
+
+            padding: 1rem 0;
         }
-        :link{
-            color: #D6D5A8;
+        #menu-items{
+            margin-left: 15rem;
+            position: relative;
+            z-index: 2;
         }
-        :visited{
-            color:#767d88;
+        #menu-items:hover > .menu-item
+        {
+            opacity: 0.3;
         }
-        a:hover{
-            text-decoration:underline 3px solid #816797;
+        #menu-items:hover > .menu-item:hover{
+            opacity: 1;
+        }
+        #menu-background-pattern{
+            height: 100vh;
+            width: 100vw;
+
+            background: radial-gradient(
+                rgba(255,255,255,0.1) 9%,
+                transparent 9%
+            );
+            background-position: 0% 0%;
+            background-size: 12vmin 12vmin;
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1;
+        }
+
+        #menu-items:hover ~ #menu-background-pattern{
+            background-size: 11vmin 11vmin;
+            opacity: 0.5;
+        }
+
+        .menu-item, #menu-background-pattern, #menu-background-image{
+            transition:  600ms;
+        }
+
+        #menu-background-image{
+            width: 100%;
+            height: 100%;
+
+            background-image: url(Img/Froggy_mountains.jpg);
+            
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+
+            background-position: center 0%;
+            background-size: 240vmin;
+            opacity: 0.15;
+        }
+
+        #menu-items:hover ~ #menu-background-image{
+            background-size: 240vmin;
         }
     </style>
 </head>
 <body>
-    <a href="Portfolio_webpage/Portfolio.html">Portfolio</a>
-    <a href="About_me/main.html">About me</a>
-    <a href="3d_webpage/index.html">3D webpage</a>
-    <a href="CRUD_app/index.html">Create, read, update and delete app</a>
-    <a href="Information_security/main.html">IS</a>
-    <a href="Other/Merkle-Hellman algorithm.html">Merkle-Hellman algorithm</a>
-    <a href="Other/slider.html">Slider</a>
-    <a href="Other/tiles.html">Tiles</a>
-    <a href="Other/codepen_projects.html">freeCodeCamp CodePen projects</a>
+    <div id="menu">
+        <div id="menu-items">
+            <a class="menu-item" href="Portfolio_webpage/Portfolio.html">Portfolio</a>
+            <a class="menu-item" href="About_me/main.html">About me</a>
+            <a class="menu-item" href="3d_webpage/index.html">3D webpage</a>
+            <a class="menu-item" href="CRUD_app/index.html">Create, read, update and delete app</a>
+            <a class="menu-item" href="Information_security/main.html">Information security</a>
+            <a class="menu-item" href="Other/Merkle-Hellman algorithm.html">Merkle-Hellman algorithm</a>
+            <a class="menu-item" href="Other/slider.html">Slider</a>
+            <a class="menu-item" href="Other/tiles.html">Tiles</a>
+            <a class="menu-item" href="Other/codepen_projects.html">freeCodeCamp CodePen projects</a>
+        </div>
+        <div id="menu-background-pattern"></div>
+        <div id="menu-background-image"></div>
+    </div>
+
+    <script>
+        const menuBackgroundPattern = document.getElementById('menu-background-pattern');
+        const menuBackgroundImage = document.getElementById('menu-background-image');
+
+        Array.from(document.getElementsByClassName('menu-item'))
+            .forEach((item,index,array) => {
+                item.onmouseover = () => {
+                    menuBackgroundPattern.style.backgroundPosition = `0% ${70/(array.length - 1)*index}%`;
+                    menuBackgroundImage.style.backgroundPosition = `center ${20/(array.length - 1)*index}%`;
+                }
+            });
+    </script>
 </body>
 </html>
